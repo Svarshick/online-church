@@ -148,7 +148,7 @@ def test_request_sent_to_openrouter(monkeypatch, ai_mode):
     assert sent[0]["auth"] == f"Bearer {SECRET_KEY}"
     body = sent[0]["body"]
     assert body["model"] == chat.DEFAULT_MODEL
-    assert body["max_tokens"] == chat.MAX_REPLY_TOKENS
+    assert body["max_tokens"] == chat.DEFAULT_MAX_REPLY_TOKENS
     messages = body["messages"]
     assert messages[0] == {"role": "system", "content": chat.SYSTEM_PROMPT}
     assert messages[-1] == {"role": "user", "content": "Новый вопрос"}
